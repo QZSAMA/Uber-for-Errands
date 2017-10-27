@@ -17,7 +17,27 @@ How to create [your own branch](https://help.github.com/articles/creating-and-de
 ## Backend Starter Code
 You can use this [backend starter code](backend-starter-code/) for your own projects that require a node/express/sequelize backend server. This code was forked from [CTP week-06-projects](https://github.com/CUNYTechPrep/week-06-projects)
 
+<<<<<<< HEAD
 # Technologies Used:
+=======
+## Care
+Do not change any code on website.
+And do not use -f or force command.
+
+## Basis
+Design Model View Controller and RESTful
+Things we are using:
+Front-end: 
+React.js =>https://reactjs.org/docs/hello-world.html 
+=>http://react-china.org/t/react-js/398 
+Bootstrap3=>https://getbootstrap.com/docs/3.3/components/ 
+=>http://v3.bootcss.com/ 
+Back-end: Express.js =>http://expressjs.com/en/api.html 
+=>http://expressjs.jser.us/3x_zh-cn/api.htm 
+Database: 
+Sequelize.js =>http://docs.sequelizejs.com/manual/tutorial/models-definition.html
+=>https://itbilu.com/nodejs/npm/V1PExztfb.html 
+>>>>>>> Qz
 
 ## Back End
   - Node.js running
