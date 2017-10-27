@@ -36,5 +36,3 @@ You can use this [backend starter code](backend-starter-code/) for your own proj
   - Git Source Code Manager ([git-scm](https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things), locally installed on computer)
   - [GitHub.com](https://help.github.com/) (website)
   - [Postman](https://www.getpostman.com/) for API Queries
-  
-  
