@@ -1,7 +1,10 @@
 <div class="row">
   <div class="col-xs-6 col-xs-offset-3">
     <form action="/posts" method="post" >
+      <textarea name="title" class="form-contol" placeholder="Title here" rows="1"></textarea>
+      <textarea name="money" class="form-control" placeholder="Money here" rows="1"></textarea>
       <textarea name="post" class="form-control" placeholder="Blog text" rows="4"></textarea>
+
       <button type="submit" class="btn btn-primary pull-right">Post</button>
     </form>
   </div>
@@ -11,7 +14,9 @@
     <div class="col-xs-6 col-xs-offset-3">
       <div class="panel panel-default">
         <div class="panel-body">
-          {{ post }}
+          <span>title: <a href=/posts/{{id}}>{{ title }}</a></span>
+          <span>money: {{ title }}</span>
+          <span>body:{{post}}</span>          
         </div>
       </div>
     </div>

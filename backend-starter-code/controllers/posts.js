@@ -7,8 +7,19 @@ const PostsController = {
 
     router.get('/', this.index);
     router.post('/', this.create);
+    router.get('/:id',this.show);
 
     return router;
+  },
+  show(req,res){
+    models.Posts.findOne({
+      where:{
+        id:req.params.id,
+      }
+    }).then((post)=>{
+       (post ? res.render('posts/single', { post, body: post.body }) : res.redirect('/posts'))
+    
+    })
   },
   index(req, res) {
     models.Posts.findAll()
@@ -18,8 +29,10 @@ const PostsController = {
   },
   create(req, res) {
     models.Posts.create({
+      title:req.body.title,
       post: req.body.post,
-      author: req.body.author
+      author: req.body.author,
+      money:req.body.money
     })
     .then((post) => {
       res.redirect('/posts');

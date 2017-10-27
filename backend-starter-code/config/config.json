@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "ctp_user",
+    "username": "qz",
     "password": "6666",
-    "database": "blog_development",
+    "database": "posts",
     "host": "127.0.0.1",
     "dialect": "postgresql"
   },
