@@ -1,14 +1,9 @@
 {
   "development": {
-<<<<<<< HEAD
+
     "username": "qz",
     "password": "6666",
     "database": "posts",
-=======
-    "username": "app_user",
-    "password": "app_user",
-    "database": "Uber-for-Errands_development",
->>>>>>> master
     "host": "127.0.0.1",
     "dialect": "postgresql"
   },
