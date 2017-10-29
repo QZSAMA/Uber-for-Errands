@@ -26,7 +26,10 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 app.set('views', `${__dirname}/views/`);
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
 
 
