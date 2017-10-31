@@ -17,15 +17,16 @@ const signupController = {
 		models.Users.create({
 			firstName: req.body.firstName,
       		lastName: req.body.lastName,
+      		userName: req.body.userName,
       		email: req.body.email,
 			password: req.body.password,
 		}).then((user) => {
 			req.login(user, () =>
 				res.redirect('/posts')
 			);
-		}).catch(() => {
-			res.render('sign-up')
-		});
+		 }).catch(() => {
+		 	res.render('sign-up')
+		 });
 	},
 };
 
