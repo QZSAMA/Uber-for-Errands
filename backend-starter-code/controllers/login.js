@@ -8,7 +8,7 @@ const LoginController={
 	registerRouter(){
 		
 		router.get('/', this.index);//render Login page
-		router.post('/',this.login);//
+		router.post('/',this.login);//LOGIN
 		return router;
 	},
 	index(req,res){
