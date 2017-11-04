@@ -14,12 +14,12 @@ passport.use(new LocalStrategy({
   (email, password, done) => {
     Users.findOne({
       where: { email },
-    }).then((user) => {
+    }).then((users) => {
       if(!users) {
         return done(null, false, { message: 'Incorrect email.' });
       }
 
-      if (passwordsMatch(password, user.password_hash) === false) {
+      if (passwordsMatch(password, users.password_hash) === false) {
         return done(null, false, { message: 'Incorrect password.' });
       }
 
@@ -33,7 +33,7 @@ passport.serializeUser((users, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id).then((users) => {
+  Users.findById(id).then((users) => {
     if (!users) {
       return done(null, false);
     }
@@ -43,9 +43,9 @@ passport.deserializeUser((id, done) => {
 });
 
 passport.redirectIfLoggedIn = (route) =>
-  (req, res, next) => (req.user ? res.redirect(route) : next());
+  (req, res, next) => (req.users ? res.redirect(route) : next());
 
 passport.redirectIfNotLoggedIn = (route) =>
-  (req, res, next) => (req.user ? next() : res.redirect(route));
+  (req, res, next) => (req.users ? next() : res.redirect(route));
 
 module.exports = passport;
