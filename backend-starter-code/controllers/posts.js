@@ -5,9 +5,9 @@ const PostsController = {
   registerRouter() {
     const router = express.Router();
 
-    router.get('/', this.index);
-    router.post('/', this.create);
-    router.get('/:id',this.show);
+    router.get('/', this.index);//
+    router.post('/', this.create);//post a post
+    router.get('/:id',this.show);//specific post
 
     return router;
   },

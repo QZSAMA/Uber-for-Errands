@@ -15,7 +15,7 @@ passport.use(new LocalStrategy({
     Users.findOne({
       where: { email },
     }).then((user) => {
-      if(!user) {
+      if(!users) {
         return done(null, false, { message: 'Incorrect email.' });
       }
 
@@ -23,22 +23,22 @@ passport.use(new LocalStrategy({
         return done(null, false, { message: 'Incorrect password.' });
       }
 
-      return done(null, user, { message: 'Successfully Logged In!' });
+      return done(null, users, { message: 'Successfully Logged In!' });
     });
   })
 );
 
-passport.serializeUser((user, done) => {
-  done(null, user.id);
+passport.serializeUser((users, done) => {
+  done(null, users.id);
 });
 
 passport.deserializeUser((id, done) => {
-  Users.findById(id).then((user) => {
-    if (!user) {
+  User.findById(id).then((users) => {
+    if (!users) {
       return done(null, false);
     }
 
-    return done(null, user);
+    return done(null, users);
   });
 });
 
