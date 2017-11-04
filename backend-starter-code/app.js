@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const passport = require('passport');
 const models = require('./models');
 
 const PORT = process.env.PORT || 8000;
@@ -8,7 +9,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Uncomment the following if you want to serve up static assets.
 // (You must create the public folder)
@@ -26,8 +28,6 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 app.set('views', `${__dirname}/views/`);
-
-
 
 
 // Load up all of the controllers
