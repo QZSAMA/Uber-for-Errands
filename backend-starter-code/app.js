@@ -1,6 +1,8 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const passport = require('passport');
+const flash = require('connect-flash');
+const expressSession = require('express-session');
 const models = require('./models');
 
 const PORT = process.env.PORT || 8000;
@@ -9,6 +11,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressSession(({ secret: 'keyboard cat', resave: false, saveUninitialized: true })));
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
