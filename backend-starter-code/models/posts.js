@@ -1,5 +1,7 @@
+const models = require('../models');
+
 module.exports = (sequelize, DataTypes) => {
-   Posts = sequelize.define('Posts', {
+   const Posts = sequelize.define('Posts', {
     title:{ type: DataTypes.STRING,
       unique: 'compositeIndex',
       allowNull: false,
@@ -14,12 +16,11 @@ module.exports = (sequelize, DataTypes) => {
       },},
     author: DataTypes.STRING,
     money:DataTypes.INTEGER
-  }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here[user require]
+  })
+  Posts.associate=(models)=> {
+        models.Posts.belongsTo(models.Users);
       }
-    }
-  });
+    
+  
   return Posts;
 };

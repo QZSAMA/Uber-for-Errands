@@ -22,10 +22,6 @@ const LoginController={
       	successFlash: true,
     })(req, res);
   },
-	
-
 }
-
-
 
 module.exports = LoginController.registerRouter();

@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt-nodejs');
-
+const models = require('../models');
 
 module.exports = (sequelize, DataTypes) => {
   Users = sequelize.define('Users', {
@@ -43,13 +43,11 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
       notEmpty: true,
       },
-    }}, {
-      classMethods: {
-        associate: function(models) {
-        // associations can be defined here[user require]
+    }})
+  Users.associate=(models)=> {
+          models.Users.hasMany(models.Posts)
         }
-      }
-    });
+      ;
 
 
   Users.beforeCreate((user) =>
