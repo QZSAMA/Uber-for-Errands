@@ -28,10 +28,9 @@ const PostsController = {
       });
   },
   create(req, res) {
-    models.Posts.create({
+    req.user.createPost({
       title:req.body.title,
       post: req.body.post,
-      author: req.body.author,
       money:req.body.money
     })
     .then((post) => {
