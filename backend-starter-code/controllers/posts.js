@@ -1,12 +1,13 @@
 const express = require('express');
 const models = require('../models');
+const Redirect = require('../middlewares/redirect');
 
 const PostsController = {
   registerRouter() {
     const router = express.Router();
 
     router.get('/', this.index);//
-    router.post('/', this.create);//post a post
+    router.post('/',  Redirect.ifNotLoggedIn('/login'),this.create);//post a post
     router.get('/:id',this.show);//specific post
 
     return router;
