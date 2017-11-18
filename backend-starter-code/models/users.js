@@ -51,6 +51,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
 
+  Users.associate = (models) => {
+  Users.belongsToMany(Skills, {through: 'UsersSkills'}); } //many to many relationship with skills table through UsersSkills
 
   Users.beforeCreate((user) =>
     new sequelize.Promise((resolve) => {
