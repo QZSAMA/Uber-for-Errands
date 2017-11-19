@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
     phoneNumber {
       type: DataTypes.STRING,
       validate: {
-        is: /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/, 
+        is: ["^1?[-. ]?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/", 'i'],
         notEmpty: true,
       }
     },
@@ -64,7 +64,7 @@ module.exports = (sequelize, DataTypes) => {
       zip: {
         type: DataTypes.STRING,
         validate: {
-          is: ^[0-9]{5}(?:-[0-9]{4})?$
+          is: ["^[0-9]{5}(?:-[0-9]{4})?$", 'i'],
         }
       }
     },
