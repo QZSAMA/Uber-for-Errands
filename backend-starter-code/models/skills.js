@@ -7,5 +7,5 @@ module.exports = (sequelize, DataTypes) => {
     Skills.associate = (models) => {
     Skills.belongsToMany(Users, {through: 'UsersSkills'}); } //many to many relationship with users table
 
-  return Skills; // what does this line do?
+  return Skills;
 }
