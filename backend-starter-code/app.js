@@ -4,6 +4,8 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const expressSession = require('express-session');
 const models = require('./models');
+const viewHelpers = require('./middlewares/viewHelpers')
+
 
 const PORT = process.env.PORT || 8000;
 
@@ -19,8 +21,8 @@ app.use(passport.session());
 // Uncomment the following if you want to serve up static assets.
 // (You must create the public folder)
 
-//app.use(express.static('./public'));
-
+app.use(express.static('./public'));
+app.use(viewHelpers.register());
 
 // Uncomment the following if you want to use handlebars
 // on the backend. (You must create the views folder)

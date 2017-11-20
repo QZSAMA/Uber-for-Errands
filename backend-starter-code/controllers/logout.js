@@ -8,13 +8,13 @@ const LogoutController = {
   registerRouter() {
     const router = express.Router();
 
-    router.get('/', this.logout);
+    router.post('/', this.logout);
 
     return router;
   },
   logout(req, res) {
     req.logout();
-    res.redirect('/login');
+    res.redirect('/');
   },
 };
 

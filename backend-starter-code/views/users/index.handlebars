@@ -1,4 +1,4 @@
-<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+<header class="intro-header" style="background-image: url('/img/user.png')">
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -16,9 +16,9 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       {{#each allUsers}}
         <div class="post-preview">
-          <a href="/users/{{this.username}}">
+          <a href="/users/{{this.userName}}">
             <h2 class="post-title">
-              {{this.username}}
+              {{this.userName}}
             </h2>
           </a>
           <p class="post-meta">{{this.firstName}} {{this.lastName}}</p>
