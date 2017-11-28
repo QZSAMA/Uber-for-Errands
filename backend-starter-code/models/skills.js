@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
 	})
 
     Skills.associate = (models) => {
-    Skills.belongsToMany(Users, {through: 'UsersSkills'}); } //many to many relationship with users table
+    Skills.belongsToMany(models.Users, {through: 'UsersSkills'}); } //many to many relationship with users table
 
   return Skills;
 }

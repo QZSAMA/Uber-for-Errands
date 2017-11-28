@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt-nodejs');
 
 module.exports = (sequelize, DataTypes) => {
   Users = sequelize.define('Users', {
+
     firstName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -9,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
+
     lastName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -16,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: true,
       },
     },
+
     userName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -25,6 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         isAlphanumeric: true,
       },
     },
+
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -34,9 +38,11 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: true,
       },
     },
+
     password_hash: {
       type: DataTypes.STRING,
     },
+
     password: {
       type: DataTypes.VIRTUAL,
       validate: {
@@ -44,8 +50,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     }
     
-    avgRating {},
-
+    //avgRating {}, maybe make this a class method that is computed every time it is asked for instead of a column in the user table?
 
     phoneNumber {
       type: DataTypes.STRING,
@@ -78,7 +83,13 @@ module.exports = (sequelize, DataTypes) => {
     }*/);
 
   Users.associate = (models) => {
-  Users.belongsToMany(Skills, {through: 'UsersSkills'}); } //many to many relationship with skills table through UsersSkills
+    Users.belongsToMany(models.Skills, {through: 'UsersSkills'}); //many to many relationship with skills table through UsersSkills
+    Users.hasMany(models.Posts, {as: 'client'});
+    Users.hasMany(models.Posts, {as: 'worker'});
+    Users.hasMany(models.Ratings, {as: 'author'});
+    Users.hasMany(models.Ratings, {as: 'subject'});
+  } 
+
 
   Users.beforeCreate((user) =>
     new sequelize.Promise((resolve) => {
