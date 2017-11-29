@@ -10,7 +10,7 @@ const HomeController = {
     return router;
   },
   index(req, res) {
-    //res.render('/homepage');
+    res.render('homepage');
     // homepage for future reference. 
   }
 };

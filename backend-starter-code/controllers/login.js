@@ -12,7 +12,7 @@ const LoginController={
 		return router;
 	},
 	index(req,res){
-		res.render('login');
+		res.render('login',{ error: req.flash('error') });
 	},
 	login(req,res){
 		passport.authenticate('local', {
