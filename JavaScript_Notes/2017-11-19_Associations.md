@@ -34,39 +34,58 @@ Team.belongsTo(Player, {foreignKey: 'alternate'}); // Adds alternate to user rat
 ### Difference between hasOne() and belongsTo() (both one to one)
 
 - 1:1 relationship can be defined by either HasOne or BelongsTo. Each serves a different purpose. 
-- `hasOne()` inserts the association key in **target** model
-- `belongsTo()` inserts the association key in the **source** model.
+- `hasOne()` assumes the association key **already exists** in **target** model
+  - supplies set, get methods to the model file it is written in.
+- `belongsTo()` **inserts** the association key in the **source** model.
+  - supplies methods *and* puts a new column (association key) in the source model
+- When making 1:1 associations, *you need both* of these commands. One in each model file. 
 
 
 
 ### Example:
 ```javascript
-const Player = this.sequelize.define('player', {/* attributes */})
 const Coach  = this.sequelize.define('coach', {/* attributes */})
 const Team  = this.sequelize.define('team', {/* attributes */});
 ```
-- xSuppose our `Player` model should have a `teamId` column. 
-- Each  `Team` model should have a `coachId` column to store the `Coach` .
-- Both scenarios requires different kind of 1:1 relation because foreign key relation is present on different models each time.
-- **belongsTo()**: for `Player.belongsTo(Team)` think of a backward arrow from Team->Player because the team's id ends up as a column in the players table.
-  -  When information about association is present in **source** model we can use `belongsTo`. In this case `Player` is suitable for `belongsTo` because it has `teamId`column.
+- We want the relationship to be defined as follows: 
+  - A coach can't coach two teams.
+  - Each team can't have more than one coach.
+  - Essentially, we want to define a, Bijective, 1:1 relationship. 
 
 ```javascript
-Player.belongsTo(Team)  // `teamId` will be added on Player which is the Source model
+// In Coach.js
+Coach.hasOne(Team)  // methods added to coach
+// In Team.js
+Team.belongsTo(Coach) // key added to coach and access methods added to team.
 ```
+- **belongsTo()**: for `Player.belongsTo(Team)` think of a backward arrow from Team->Coach. Belongs to adds accessor methods to the coach model.
+
 
 - **hasOne():** for `Coach.hasOne(Team)` think of a forward arrow from Coach->Team because the coache's id ends up as a column in the team's table.
   - When information about association is present in **target** model we can use `hasOne`. In this case `Coach` is suitable for `hasOne` because `Team` model store information about its `Coach` as `coachId` field.
 
+
+## Many to Many Associations
 ```javascript
-Coach.hasOne(Team)  // `coachId` will be added on Team which is the Target model
+const Player  = this.sequelize.define('coach', {/* attributes */})
+const Team  = this.sequelize.define('team', {/* attributes */});
+```
+- In this scenario, this is an intramural league and the players can play on multiple teams at one time. 
+
+![11-19-2017_Associations](11-19-2017_Associations.png)
+
+```javascript
+// In Teams.js file
+Teams.belongsToMany(models.Users,{foreignKey: 'playerId', as:'player', through: 'UsersTeams'})
+//In User.js file
+User.hasMany(models.Teams, {foreignKey: 'teamId', as:'team', through: 'UsersTeams'})
 ```
 
 
 
-## hasMany() associations (one to many) 
+### hasMany()  
 
-- One-To-Many associations are connecting **one source** with **multiple targets**. The targets however are again connected to exactly one specific source.
+- One-To-Many associations are connecting **one source** with **multiple targets**. The targets however are again connected to exactly one specific source. 
 
 ```javascript
 const User = sequelize.define('user', {/* ... */})
@@ -182,3 +201,10 @@ User.findAll({
   }]
 });
 ```
+
+
+
+
+
+
+

@@ -16,7 +16,10 @@ const PostsController = {
     models.Posts.findOne({
       where:{
         id:req.params.id,
-      }
+      },
+      include: [{
+        model: models.Users,
+      }]
     }).then((post)=>{
        (post ? res.render('posts/single', { post, body: post.body }) : res.redirect('/posts'))
     
