@@ -5,8 +5,7 @@
         <div class="page-heading">
           <h1>Title: {{post.title}}</h1>
           
-          
-         <span class="subheading">By: {{Users.userName}}</span>
+         <span class="subheading">By: {{post.User.userName}}</span>
         </div>
         <h2>Reward : {{post.money}}</h2>
         <p>Description {{post.post}}</p>
@@ -20,6 +19,47 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <p>{{post.body}}</p>
+    </div>
+  </div>
+
+
+  <div class = "row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    
+    
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <h2>Mission pending user</h2>
+        <table style="width:100%">
+        <tr>
+          <th>UserName</th>
+          <th>Avg Rating</th>
+          <th>Want!</th>
+          
+        </tr>
+        {{#each post.bidder.userName}}
+        
+        <tr>
+          <a href=/user/{{post.bidder.userName}}>
+            <td>{{post.bidder.userName}}</td>
+            <td>{{post.bidder.rating}}</td>
+            <td>
+              <a href=/post/{{post.id}}/{{post.bidder.userName}}/1</a>
+              <button class="danger">
+                <p>Yes!</p>
+              </button>
+            </td>
+            <td>
+              <a href=/post/{{post.id}}/{{post.bidder.userName}}/0</a>
+              <button class="danger">
+                <p>No!</p>
+              </button>
+            </td>
+          </a>
+        </tr>
+         {{/each}}
+       </table>
+      </div>
     </div>
   </div>
 </div>
