@@ -9,32 +9,35 @@
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
   <title> Chore.Me </title>
 </head>
-<body>
-  <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header page-scroll">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<body id="bgcolor1">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
-          Menu <i class="fa fa-bars"></i>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Start Bootstrap</a>
+        <a class="navbar-brand navbar-left" href="/">Chore.Me</a>
       </div>
-
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="navbar-collapse collapse" role="navigation">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/">Home</a></li>
-          <li><a href="/users">Users</a></li>
-          <li><a href="/posts">Posts</a></li>
+          <li><a href="/posts">Post Lobby</a></li>
+          <li><a href="/users" >Active Users</a></li>
           {{#if cur_user}}
-            <li id="logout"><a href="#">Logout</a></li>
+          <li id="logout"><a href="#" >Logout</a></li>
           {{ else }}
-            <li><a href="/login">Login</a></li>
-            <li><a href="/sign-up">Sign Up</a></li>
+          <li><a href="/login" >Login</a></li>
+          <li><a href="/sign-up">Sign-up</a></li>
           {{/if}}
+          
+          <li><a href="/about">About us</a></li>
         </ul>
       </div>
     </div>
-  </nav>
+  </div>
+
 
   {{{ body }}}
 
