@@ -453,7 +453,8 @@ a img:hover {
 }
 #post-box{
 	margin-bottom:30px;
-	
+    margin-top:30px;
 }
-#bgcolor1{
-	background-color: rgba(37,27,100,0.6);
+#post-container{
+    background-color:rgba(37,27,100,0.4);       
+}
