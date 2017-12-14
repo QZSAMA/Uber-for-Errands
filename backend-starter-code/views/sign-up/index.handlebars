@@ -1,13 +1,13 @@
 
-<header class="intro-header" style="background-image: url('img/urname.jpg')">
+<header class="intro-header" >
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <div class="site-heading" id="dark">
+        <div class="site-heading">
           <h1>Entering a new world!!</h1>
           
-          <hr class="small">
-          <span class="subheading">CTP</span>
+         
+          <span class="subheading"><h4>--- CTP, Accel</h4></span>
         </div>
       </div>
     </div>
@@ -16,25 +16,49 @@
 <div class="container" >
   <form name="sign-up" action="/sign-up" method="post">
     <div class="form-group">
-      <label for="firstName">First Name</label>
+      <div class="col-xs-6">
+      <label for="firstName">First Name</label></div>
+      <div class="col-xs-6">
       <input type="text" class="form-control" name="firstName" aria-describedby="firstNameHelp" placeholder="Enter your first name">
     </div>
+    </div>
+
     <div class="form-group">
+      <div class="col-xs-6">
       <label for="lastName">Last Name</label>
+    </div>
+    <div class="col-xs-6">
       <input type="text" class="form-control" name="lastName" aria-describedby="lastNameHelp" placeholder="Enter your last name">
     </div>
+    </div>
+    
     <div class="form-group">
+    <div class="col-xs-6">
       <label for="userName">User Name</label>
+      </div>
+      <div class="col-xs-6">
       <input type="text" class="form-control" name="userName" aria-describedby="userNameHelp" placeholder="Enter your user name">
     </div>
+    </div>
+
     <div class="form-group">
+    <div class="col-xs-6">
       <label for="email">Email address</label>
+      </div>
+      <div class="col-xs-6">
       <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter your email">
     </div>
+    </div>
     <div class="form-group">
+      <div class="col-xs-6">
       <label for="password">Password</label>
+    </div>
+    <div class="col-xs-6">
       <input type="password" class="form-control" name="password" placeholder="Enter your password">
     </div>
+  </div>
+  <div class="col-xs-6">
     <button type="submit" class="btn btn-primary">Sign Up</button>
+  </div>
   </form>
 </div>
