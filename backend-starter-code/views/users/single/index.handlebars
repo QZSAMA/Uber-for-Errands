@@ -1,10 +1,9 @@
-<header class="intro-header" style="background-image: url('/img/time.jpg')">
+<header class="intro-header" >
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="page-heading">
           <h1>{{user.userName}}</h1>
-          <hr class="small">
           <span class="subheading">{{user.firstName}} {{user.lastName}}</span>
         </div>
       </div>
@@ -17,7 +16,7 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       {{#each allPosts}}
         <div class="post-preview">
-          <a href="/posts/{{../user.userName}}/{{this.slug}}">
+          <a href="/posts/{{../user.userName}}/{{this.post}}">
             <h2 class="post-title">
               {{this.title}}
             </h2>

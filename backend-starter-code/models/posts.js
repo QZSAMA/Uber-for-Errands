@@ -20,7 +20,19 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
 
-    money:DataTypes.DOUBLE,
+    money:{
+      type:DataTypes.DOUBLE,
+      allowNull:false,
+      validate:{
+        notEmpty:true,
+      }
+
+    },
+    location:{
+      type:DataTypes.STRING,
+      allowNull:true,
+      
+    },
   })
 
   Posts.associate=(models)=> {

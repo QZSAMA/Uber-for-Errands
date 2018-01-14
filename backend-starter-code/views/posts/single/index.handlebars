@@ -1,4 +1,4 @@
-<header class="intro-header" style="background-image: url('/img/hammer.jpg')">
+<header class="intro-header" >
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -6,10 +6,10 @@
           <h1>Title: {{post.title}}</h1>
           
           
-         <span class="subheading">By: {{post.User.userName}}</span>
+         <span class="subheading" id = "dark">By: {{post.User.userName}}</span>
         </div>
-        <h2>Reward : {{post.money}}</h2>
-        <p>Description {{post.post}}</p>
+        <h2 id="dark">Reward : {{post.money}}</h2>
+        <p id="dark">Description {{post.post}}</p>
         
       </div>
     </div>
@@ -26,16 +26,22 @@
 
   <div class = "row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <div class="danger">
+    <button style="color:rgb(0,0,0);">
+    Want it  
+    </button>
     
+  </div>
     
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="dark">
         <h2>Mission pending user</h2>
-        <table style="width:100%">
+        <table style="width:100%" >
         <tr>
           <th>UserName</th>
           <th>Avg Rating</th>
           <th>Want!</th>
+          <th>Nah</th>
           
         </tr>
         {{#each post.bidder.userName}}
